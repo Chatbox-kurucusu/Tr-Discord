@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessiz Hat | Profesyonel İletişim Alanı</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>TR-Discord</title>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-overlay">
+        <div class="login-box">
+            <h2>TR-Discord</h2>
+            <input type="text" id="username" placeholder="İsim belirle...">
+            <button id="loginBtn">Giriş Yap</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+    <div class="app-container">
+        <div class="main-panel">
+            <div class="panel-header">
+                <input type="text" id="searchRoom" placeholder="Grup veya konu ara..." oninput="filterRooms()">
+            </div>
+            <div class="room-list" id="roomList">
+                </div>
+        </div>
+
+        <div class="side-panel">
+            <button class="btn-kur" onclick="createRoom()">YENİ GRUP OLUŞTUR</button>
+            <div class="user-info">
+                <h3>Profil Durumu</h3>
+                <p id="display-name">Çevrimdışı</p>
+            </div>
+            <div class="footer-sembol">
+                <small>© 2026 Sessiz Hat</small>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-screen">
+        <div class="chat-header">
+            <span id="active-room-name">Grup Adı</span>
+            <button onclick="leaveRoom()" class="btn-exit">Ayrıl</button>
+        </div>
+        <div class="messages" id="messageArea"></div>
+        <div class="chat-footer">
+            <button onclick="toggleAudio()" id="audioBtn" class="btn-audio">Sesi Başlat</button>
+            <input type="text" id="msgInput" placeholder="Mesajınızı yazın..." onkeydown="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()" class="btn-send">Gönder</button>
+        </div>
+    </div>
+
+    <div id="request-modal">
+        <p id="request-text"></p>
+        <div class="modal-buttons">
+            <button onclick="answerRequest(true)" class="btn-approve">Onayla</button>
+            <button onclick="answerRequest(false)" class="btn-reject">Reddet</button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
